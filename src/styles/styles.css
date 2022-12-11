@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: #f6f6f6;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  margin: 24px;
+}
+
+p {
+  margin: 8px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin: 24px;
+}
+
+h2 {
+  margin: 16px;
+}
+
+p {
+  margin: 8px;
+}/*# sourceMappingURL=styles.css.map */

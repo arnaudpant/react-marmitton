@@ -1,0 +1,37 @@
+// POSITIONNEMENT
+
+@mixin abs-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// FLEXBOX
+
+@mixin flex-c-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-c-start {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+@mixin flex-c-sb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-c-sa {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+
