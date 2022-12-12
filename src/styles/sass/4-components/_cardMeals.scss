@@ -1,0 +1,27 @@
+.card-meal {
+    position: relative;
+    margin: 8px;
+    height: 350px;
+    width: 300px;
+    border-radius: 16px;
+    @include boxShadow2;
+    overflow: hidden;
+    background-position: center;
+
+    img {
+        position: absolute;
+        @include abs-center;
+        height: 350px;
+        z-index: -1;
+    }
+
+    h2 {
+        position: relative;
+        top: 60%;
+        font-family: $police-titre;
+        color: $color-bg;
+        text-align: center;
+        z-index: 1;
+        
+    }
+}
