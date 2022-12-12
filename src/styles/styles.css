@@ -14,26 +14,87 @@ li {
   list-style-type: none;
 }
 
-h1 {
-  margin: 24px;
-}
-
-p {
-  margin: 8px;
-}
-
 a {
   text-decoration: none;
 }
 
+/*
+***  Couleurs ***
+*/
+/*
+***  Break points ***
+*/
+/*
+***  Police ***
+*/
+/*
+***  Margin ***
+*/
 h1 {
-  margin: 24px;
+  margin: "24px";
 }
 
 h2 {
-  margin: 16px;
+  margin: "16px";
 }
 
 p {
-  margin: 8px;
+  margin: "8px";
+}
+
+/* Shadow 0dp */
+/* Shadow 1dp */
+/* Shadow 2dp */
+/* Shadow 3dp */
+/* Shadow 4dp */
+/* Shadow 6dp */
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 56px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.menu-hamburger {
+  display: none;
+}
+
+.logos {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+.logos h1 {
+  color: #0078aa;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8em;
+}
+
+.searchbar {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+.searchbar input {
+  height: 32px;
+  background-color: #f3f6f9;
+  border: 1px solid #dddfe1;
+  border-radius: 999px;
+}
+
+.btn-action {
+  display: flex;
+  flex-direction: row;
+}
+.btn-action input {
+  width: 120px;
+  height: 32px;
+  margin: 0 8px;
+  border: 1px solid #0078aa;
+  border-radius: 999px;
 }/*# sourceMappingURL=styles.css.map */
