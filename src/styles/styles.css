@@ -56,7 +56,7 @@ p {
   width: 100%;
   height: 56px;
   background-color: #f3f6f9;
-  z-index: 2;
+  z-index: 100;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -77,21 +77,6 @@ p {
   font-size: 1.8em;
 }
 
-.searchbar {
-  flex-grow: 1;
-  margin: 0 8px;
-}
-.searchbar input {
-  height: 32px;
-  padding: 0 8px;
-  background-color: #f3f6f9;
-  border: 1px solid #dddfe1;
-  border-radius: 999px;
-}
-.searchbar input:focus-visible {
-  border: none;
-}
-
 .btn-action {
   display: flex;
   flex-direction: row;
@@ -104,13 +89,37 @@ p {
   border-radius: 999px;
 }
 
-.container-cards {
+.container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  top: 56px;
+}
+
+.searchbar {
+  margin: 24px 0 16px;
+}
+.searchbar input {
+  height: 32px;
+  width: 200px;
+  padding: 0 8px;
+  background-color: #f3f6f9;
+  border: 1px solid #0078aa;
+  color: #0078aa;
+  text-align: center;
+  border-radius: 999px;
+}
+.searchbar input:focus-visible {
+  border: none;
+}
+
+.container-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  top: 48px;
-  padding: 24px 16px;
 }
 
 .card-meal {
@@ -138,4 +147,51 @@ p {
   color: #f3f6f9;
   text-align: center;
   z-index: 1;
+}
+.card-meal a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.menu {
+  display: block;
+  position: absolute;
+  top: 24px;
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f6f9;
+  z-index: 10;
+}
+
+.no-menu {
+  display: none;
+}
+
+.menu-h1 {
+  text-align: center;
+  padding: 8px;
+  color: #0078aa;
+  font-family: "Poppins", sans-serif;
+}
+
+.p-menu {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #0078aa;
+}
+
+.box-img-ingredient {
+  display: flex;
+  justify-content: center;
+  margin: 16px;
+}
+.box-img-ingredient img {
+  width: 300px;
+  height: auto;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ingredients-list {
+  margin: 16px;
 }/*# sourceMappingURL=styles.css.map */

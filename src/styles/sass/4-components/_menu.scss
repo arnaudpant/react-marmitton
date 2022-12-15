@@ -1,0 +1,41 @@
+.menu {
+    display: block;
+    position: absolute;
+    top: 24px;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-bg;
+    z-index: 10;
+}
+
+.no-menu {
+    display: none;
+}
+
+.menu-h1 {
+    text-align: center;
+    padding: 8px;
+    color: $color-primary;
+    font-family: $police-titre;
+}
+
+.p-menu {
+    text-align: center;
+    font-family: $police-titre;
+    color: $color-primary;
+}
+
+.box-img-ingredient {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    img {
+        width: 300px;
+        height: auto;
+        @include boxShadow1;
+    }
+}
+
+.ingredients-list {
+    margin: 16px;
+}

@@ -1,8 +1,33 @@
-.container-cards {
+.container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    top: 56px;
+}
+
+.searchbar {
+    margin: 24px 0 16px;
+
+    input {
+        height: 32px;
+        width: 200px;
+        padding: 0 8px;
+        background-color: $color-bg;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        text-align: center;
+        border-radius: 999px;
+        &:focus-visible {
+            border: none;
+        }
+    }
+}
+
+.container-cards {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    top: 48px;
-    padding: 24px 16px;
 }

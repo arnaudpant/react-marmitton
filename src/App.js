@@ -1,13 +1,16 @@
-import AppBar from './components/Appbar/AppBar';
-import ContainerCards from './components/container-cards/ContainerCards';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
 import './styles/styles.css';
 
 function App() {
   return (
-    <>
-      <AppBar />
-      <ContainerCards />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/menu' element={<Menu />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

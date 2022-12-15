@@ -1,6 +1,7 @@
-import React from "react";
+
 
 const AppBar = () => {
+
     return (
         <div className="navbar">
             <div className="menu-hamburger"></div>
@@ -23,9 +24,6 @@ const AppBar = () => {
                     </g>
                 </svg>
                 <h1>react marmitton</h1>
-            </div>
-            <div className="searchbar">
-                <input type="search" id="site-search"></input>
             </div>
             <div className="btn-action">
                 <input type="button" className="btn-panier" value="Mon panier"></input>

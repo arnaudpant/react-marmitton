@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import Menu from "../../pages/Menu";
 
 const CardMeals = ({ meals }) => {
     // State
+    const [isActive, setActive] = useState(false);
 
     // Comportement
-    console.log(meals);
+
+    const toggleClass = () => {
+        setActive(!isActive);
+    };
+
 
     // Afichage
     return (
-        <div className="card-meal">
-            <div className="img-bkg">
-                <img src={meals.strMealThumb} alt="" />
+        <>
+            <div className="card-meal" onClick={toggleClass}>
+                <div className="img-bkg">
+                    <img src={meals.strMealThumb} alt="plat {meals.strMeal}" />
+                </div>
+                <h2>{meals.strMeal}</h2>
             </div>
-            <h2>{meals.strMeal}</h2>
-        </div>
-    )
+            <div
+                className={isActive ? "menu" : "no-menu"}
+                onClick={toggleClass}
+            >
+                <Menu menu={meals} />
+            </div>
+
+            
+        </>
+    );
 };
 
 export default CardMeals;
