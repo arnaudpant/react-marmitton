@@ -9,12 +9,16 @@
     background-color: $color-bg;
     z-index: 100;
     @include boxShadow4;
+
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+    }
 }
 
 
-.menu-hamburger {
-    display: none;
-}
+// .menu-hamburger {
+//     display: none;
+// }
 
 
 .logos {
@@ -23,11 +27,16 @@
     flex-grow: 1;
     flex-wrap: nowrap;
     flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
 
     h1 {
         color: $color-primary;
         font-family: $police-titre;
         font-size: 1.8em;
+        @media screen and (max-width: 900px) {
+            font-size: 1.5em;
+        }
     }
 }
 
@@ -42,5 +51,8 @@
         margin: 0 8px;
         border: 1px solid $color-primary;
         border-radius: 999px;
+    }
+    @media screen and (max-width: 900px) {
+        display: none;
     }
 }

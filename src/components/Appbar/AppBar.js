@@ -4,7 +4,7 @@ const AppBar = () => {
 
     return (
         <div className="navbar">
-            <div className="menu-hamburger"></div>
+            {/* <div className="menu-hamburger"></div> */}
             <div className="logos">
                 <svg
                     enable-background="new 0 0 20 20"

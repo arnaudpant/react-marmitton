@@ -18,10 +18,18 @@
     h2 {
         position: relative;
         top: 60%;
+        width: 280px;
+        margin: 0 auto;
+        border-radius: 999px;
+        background-color: $color-primary;
         font-family: $police-titre;
         color: $color-bg;
         text-align: center;
         z-index: 1;
+
+        @media screen and (max-width: 900px) {
+            font-size: 1.2em;
+        }
     }
     a{
         display: block;
