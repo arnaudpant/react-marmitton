@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Menu from "../../pages/Menu";
 
-const CardMeals = ({ meals }) => {
+const CardMeals = ({ meals, positionClick }) => {
     // State
     const [isActive, setActive] = useState(false);
 
@@ -10,7 +10,7 @@ const CardMeals = ({ meals }) => {
     const toggleClass = () => {
         setActive(!isActive);
     };
-
+    console.log(positionClick);
 
     // Afichage
     return (
@@ -24,6 +24,7 @@ const CardMeals = ({ meals }) => {
             <div
                 className={isActive ? "menu" : "no-menu"}
                 onClick={toggleClass}
+                style={{top:positionClick + 'px'}}
             >
                 <Menu menu={meals} />
             </div>

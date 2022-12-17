@@ -9,8 +9,6 @@ const Menu = ({menu}) => {
 
     //Comportement
 
-
-    //console.log(menu);
     return (
         <>
             <h1 className="menu-h1">Menu</h1>
