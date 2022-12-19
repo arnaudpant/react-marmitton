@@ -10,7 +10,6 @@ const CardMeals = ({ meals, positionClick }) => {
     const toggleClass = () => {
         setActive(!isActive);
     };
-    console.log(positionClick);
 
     // Afichage
     return (
