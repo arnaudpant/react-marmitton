@@ -25,7 +25,9 @@ const CardMeals = ({ meals, positionClick }) => {
                 onClick={toggleClass}
                 style={{top:positionClick + 'px'}}
             >
+                {isActive && 
                 <Menu menu={meals} />
+                }
             </div>
 
             
