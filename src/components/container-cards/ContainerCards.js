@@ -1,7 +1,5 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardMeals from "../cardMeal/CardMeals";
-// import {searchLetter} from "../Appbar/AppBar"
 
 const ContainerCards = () => {
     // State
@@ -12,17 +10,17 @@ const ContainerCards = () => {
 
     // Comportement
     useEffect(() => {
-        axios
-            .get(
-                `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchLetter}`
-            )
-            .then((res) => setData(res.data.meals));
+        fetch(
+            `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchLetter}`
+        )
+            .then((res) => res.json())
+            .then((res) => setData(res.meals));
     }, [searchLetter]);
 
     useEffect(() => {
-        axios
-            .get("https://www.themealdb.com/api/json/v1/1/random.php")
-            .then((res) => setDataRandom(res.data.meals[0]));
+        fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+            .then((res) => res.json())
+            .then((res) => setDataRandom(res.meals[0]));
     }, []);
 
     const positionY = (pos) => {
