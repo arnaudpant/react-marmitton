@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Menu from "../../pages/Menu";
+import Menu from "../menu/Menu";
 
 const CardMeals = ({ meals, positionClick }) => {
     // State
