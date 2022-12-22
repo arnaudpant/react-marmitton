@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Menu from "../../pages/Menu";
+import Menu from "../menu/Menu";
 
 const CardMeals = ({ meals, positionClick }) => {
     // State
@@ -25,7 +25,9 @@ const CardMeals = ({ meals, positionClick }) => {
                 onClick={toggleClass}
                 style={{top:positionClick + 'px'}}
             >
+                {isActive && 
                 <Menu menu={meals} />
+                }
             </div>
 
             
