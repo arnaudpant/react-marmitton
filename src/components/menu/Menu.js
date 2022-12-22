@@ -1,13 +1,11 @@
 //import React, { useState } from "react";
 
-
-
-
-const Menu = ({menu}) => {
+const Menu = ({ menu }) => {
     // State
 
 
     //Comportement
+    console.log(menu.strInstructions.split('.'));
 
     return (
         <>
@@ -16,7 +14,9 @@ const Menu = ({menu}) => {
             <div className="box-img-ingredient">
                 <img src={menu.strMealThumb} alt={menu.strMeal}></img>
                 <div className="ingredients-list">
-                    <p>{menu.strInstructions}</p>
+                    {
+                        menu.strInstructions.split('.').map((phrase)=><p>{phrase}</p> )
+                    }
                 </div>
             </div>
         </>
