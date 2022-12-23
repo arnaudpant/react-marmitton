@@ -3,10 +3,9 @@
 const Menu = ({ menu }) => {
     // State
 
-
     //Comportement
-    console.log(menu.strInstructions.split('.'));
 
+    // Affichage
     return (
         <>
             <h1 className="menu-h1">Menu</h1>
@@ -14,9 +13,9 @@ const Menu = ({ menu }) => {
             <div className="box-img-ingredient">
                 <img src={menu.strMealThumb} alt={menu.strMeal}></img>
                 <div className="ingredients-list">
-                    {
-                        menu.strInstructions.split('.').map((phrase)=><p>{phrase}</p> )
-                    }
+                    {menu.strInstructions.split(".").map((phrase) => (
+                        <p>{phrase}</p>
+                    ))}
                 </div>
             </div>
         </>

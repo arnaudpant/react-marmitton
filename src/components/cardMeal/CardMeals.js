@@ -23,14 +23,10 @@ const CardMeals = ({ meals, positionClick }) => {
             <div
                 className={isActive ? "menu" : "no-menu"}
                 onClick={toggleClass}
-                style={{top:positionClick + 'px'}}
+                style={{ top: positionClick + "px" }}
             >
-                {isActive && 
-                <Menu menu={meals} />
-                }
+                {isActive && <Menu menu={meals} />}
             </div>
-
-            
         </>
     );
 };
