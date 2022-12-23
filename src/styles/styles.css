@@ -212,7 +212,7 @@ p {
 .box-img-ingredient {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin: 16px;
 }
 .box-img-ingredient img {
