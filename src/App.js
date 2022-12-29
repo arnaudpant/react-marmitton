@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppBar from "./components/Appbar/AppBar";
 import ContainerCards from "./components/container-cards/ContainerCards";
 import ContainerCardRandom from "./components/container-cards/ContainerCardRandom";
+import Menu from "./components/menu/Menu";
 import "./styles/styles.css";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     const [data, setData] = useState([]);
     const [searchLetter, setSearchLetter] = useState("c");
     const [dataRandom, setDataRandom] = useState("");
+    const [menuSelect, setMenuSelect] = useState("");
 
     // === COMPORTEMENT ===
 
@@ -17,7 +19,7 @@ function App() {
         fetch("https://www.themealdb.com/api/json/v1/1/random.php")
             .then((res) => res.json())
             .then((res) => setDataRandom(res.meals[0]));
-    }, []);
+    }, [data]);
 
     useEffect(() => {
         fetch(
@@ -31,29 +33,47 @@ function App() {
         setSearchLetter(inputModif);
     };
 
+    const menuClick = (id) => {
+        id !== ""
+            ? setMenuSelect(data.filter((menu) => menu.idMeal === id))
+            : setMenuSelect("");
+    };
+
     return (
         <>
             <AppBar />
 
             <div className="container">
-                <div className="searchbar">
-                    <input
-                        type="search"
-                        id="site-search"
-                        placeholder="Tapez la première lettre"
-                        maxLength={1}
-                        onChange={(e) =>
-                            e.target.value === ""
-                                ? setSearchLetter("c")
-                                : affichageMenus(e.target.value)
-                        }
-                    ></input>
-                </div>
+                {menuSelect === "" && (
+                    <ContainerCardRandom menuRandom={dataRandom} />
+                )}
 
-                <ContainerCardRandom menuRandom={dataRandom} />
+                {menuSelect === "" && (
+                    <div className="searchbar">
+                        <input
+                            type="search"
+                            id="site-search"
+                            placeholder="Tapez la première lettre"
+                            maxLength={1}
+                            onChange={(e) =>
+                                e.target.value === ""
+                                    ? setSearchLetter("c")
+                                    : affichageMenus(e.target.value)
+                            }
+                        ></input>
+                    </div>
+                )}
+
+                {menuSelect === "" ? (
+                    <ContainerCards
+                        searchLetter={searchLetter}
+                        data={data}
+                        menuClick={menuClick}
+                    />
+                ) : (
+                    <Menu menuSelect={menuSelect} menuClick={menuClick} />
+                )}
             </div>
-
-            <ContainerCards />
         </>
     );
 }

@@ -129,6 +129,13 @@ p {
   margin: 8px;
 }
 
+.idee-jour {
+  font-size: 1.2em;
+  padding: 4px 16px;
+  border: 1px solid #0078aa;
+  border-radius: 999px;
+}
+
 .card-random-notice {
   display: flex;
   flex-direction: row;
@@ -146,11 +153,11 @@ p {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  top: 56px;
+  top: 80px;
 }
 
 .searchbar {
-  margin: 24px 0 16px;
+  margin: 24px 0 0;
 }
 .searchbar input {
   height: 32px;
@@ -170,12 +177,6 @@ p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.idee-jour {
-  margin: 8px;
-  color: #0078aa;
-  font-family: "Poppins", sans-serif;
 }
 
 .card-meal {

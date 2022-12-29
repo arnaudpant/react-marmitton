@@ -10,7 +10,7 @@ export default function ContainerCardRandom({ menuRandom }) {
     
     return (
         <div className="container-card-random">
-            
+            <p className="idee-jour">Idée du jour</p>
             <h1>{menuRandom.strMeal}</h1>
             <h3>Pays: {menuRandom.strArea}</h3>
             <p>Catégorie: {menuRandom.strCategory}</p>
