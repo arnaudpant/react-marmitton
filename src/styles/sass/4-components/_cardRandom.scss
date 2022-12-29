@@ -1,0 +1,33 @@
+.container-card-random {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    @include boxShadow2;
+
+
+    h1, h3 {
+        margin: 0;
+        padding: $m1;
+    }
+
+    p {
+        color: $color-primary;
+        margin: $m2;
+    }
+
+}
+
+.card-random-notice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        margin: $m3;
+    }
+}

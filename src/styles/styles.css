@@ -29,16 +29,22 @@ a {
 /*
 ***  Margin ***
 */
-h1 {
-  margin: "24px";
+h1, h2, h3 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #0078aa;
 }
 
-h2 {
-  margin: "16px";
+h1 {
+  margin: 24px;
+}
+
+h2, h3 {
+  margin: 16px;
 }
 
 p {
-  margin: "8px";
+  margin: 8px;
 }
 
 /* Shadow 0dp */
@@ -102,6 +108,35 @@ p {
   .btn-action {
     display: none;
   }
+}
+
+.container-card-random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.container-card-random h1, .container-card-random h3 {
+  margin: 0;
+  padding: 4px;
+}
+.container-card-random p {
+  color: #0078aa;
+  margin: 8px;
+}
+
+.card-random-notice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.card-random-notice img {
+  margin: 12px;
 }
 
 .container {
