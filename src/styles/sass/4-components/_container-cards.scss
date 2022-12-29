@@ -31,3 +31,10 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.msg-error {
+    margin: $m4;
+    color: $color-primary;
+    font-size: 2em;
+    text-align: center;
+}

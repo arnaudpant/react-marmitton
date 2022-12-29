@@ -5,7 +5,6 @@ const ContainerCards = ({ searchLetter, data, menuClick }) => {
 
     // Comportement
 
-
     // Affichage
     return (
         <>
@@ -15,7 +14,7 @@ const ContainerCards = ({ searchLetter, data, menuClick }) => {
             >
                 {data.map((meal) => (
                     <CardMeals
-                        id={meal.idMeal}
+                        key={meal.idMeal}
                         meals={meal}
                         menuClick={menuClick}
                     />

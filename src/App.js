@@ -45,7 +45,7 @@ function App() {
 
             <div className="container">
                 {menuSelect === "" && (
-                    <ContainerCardRandom menuRandom={dataRandom} />
+                    <ContainerCardRandom menuRandom={dataRandom} menuClick={menuClick}/>
                 )}
 
                 {menuSelect === "" && (
@@ -65,13 +65,20 @@ function App() {
                 )}
 
                 {menuSelect === "" ? (
-                    <ContainerCards
-                        searchLetter={searchLetter}
-                        data={data}
-                        menuClick={menuClick}
-                    />
+                    data !== null ? (
+                        <ContainerCards
+                            searchLetter={searchLetter}
+                            data={data}
+                            menuClick={menuClick}
+                        />
+                    ) : (
+                        <div className="msg-error">Pas de menu avec la lettre {searchLetter.toUpperCase()} !<br />Essayez avec une autre lettre</div>
+                    )
                 ) : (
-                    <Menu menuSelect={menuSelect} menuClick={menuClick} />
+                    
+                        <Menu menuSelect={menuSelect} menuClick={menuClick} />
+                    
+                    
                 )}
             </div>
         </>

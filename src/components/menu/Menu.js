@@ -4,7 +4,7 @@ const Menu = ({ menuSelect, menuClick }) => {
     // State
 
     //Comportement
-    console.log(menuSelect[0]);
+    
     // Affichage
     return (
         <div className="container-menu" onClick={()=>menuClick("")}>

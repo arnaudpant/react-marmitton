@@ -112,13 +112,15 @@ p {
 
 .container-card-random {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 500px;
+  justify-content: flex-start;
+  width: 600px;
+  height: 300px;
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 .container-card-random h1, .container-card-random h3 {
   margin: 0;
@@ -129,21 +131,29 @@ p {
   margin: 8px;
 }
 
+.card-random__img {
+  height: 300px;
+  width: 200px;
+  overflow: hidden;
+}
+.card-random__img img {
+  height: 100%;
+}
+
+.card-random__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 90%;
+}
+
 .idee-jour {
   font-size: 1.2em;
   padding: 4px 16px;
   border: 1px solid #0078aa;
   border-radius: 999px;
-}
-
-.card-random-notice {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.card-random-notice img {
-  margin: 12px;
 }
 
 .container {
@@ -177,6 +187,13 @@ p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.msg-error {
+  margin: 16px;
+  color: #0078aa;
+  font-size: 2em;
+  text-align: center;
 }
 
 .card-meal {
