@@ -1,10 +1,10 @@
-export default function ContainerCardRandom({ menuRandom, menuClick }) {
+export default function ContainerCardRandom({ menuRandom }) {
     // State
 
     // Comportement
 
     return (
-        <div className="container-card-random" onClick={()=> menuClick(menuRandom.idMeal)}>
+        <div className="container-card-random">
             <div className="card-random__img">
                 <img
                     src={menuRandom.strMealThumb}
