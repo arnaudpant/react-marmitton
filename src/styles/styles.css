@@ -187,6 +187,7 @@ p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .msg-error {
