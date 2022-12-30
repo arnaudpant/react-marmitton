@@ -1,36 +1,21 @@
-import React, { useState } from "react";
-import Menu from "../menu/Menu";
 
-const CardMeals = ({ meals, positionClick }) => {
+
+const CardMeals = ({ meals, menuClick }) => {
     // State
-    const [isActive, setActive] = useState(false);
+
 
     // Comportement
 
-    const toggleClass = () => {
-        setActive(!isActive);
-    };
 
     // Afichage
     return (
         <>
-            <div className="card-meal" onClick={toggleClass}>
+            <div className="card-meal" onClick={()=> menuClick(meals.idMeal)}>
                 <div className="img-bkg">
                     <img src={meals.strMealThumb} alt="plat {meals.strMeal}" />
                 </div>
                 <h2>{meals.strMeal}</h2>
             </div>
-            <div
-                className={isActive ? "menu" : "no-menu"}
-                onClick={toggleClass}
-                style={{top:positionClick + 'px'}}
-            >
-                {isActive && 
-                <Menu menu={meals} />
-                }
-            </div>
-
-            
         </>
     );
 };
