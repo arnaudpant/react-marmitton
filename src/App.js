@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppBar from "./components/Appbar/AppBar";
 import ContainerCards from "./components/container-cards/ContainerCards";
-//import ContainerCardRandom from "./components/container-cards/ContainerCardRandom";
+import ContainerCardRandom from "./components/container-cards/ContainerCardRandom";
 import Menu from "./components/menu/Menu";
 import "./styles/styles.css";
 
@@ -10,16 +10,16 @@ function App() {
 
     const [data, setData] = useState([]);
     const [searchLetter, setSearchLetter] = useState("c");
-    //const [dataRandom, setDataRandom] = useState("");
+    const [dataRandom, setDataRandom] = useState("");
     const [menuSelect, setMenuSelect] = useState("");
 
     // === COMPORTEMENT ===
 
-    // useEffect(() => {
-    //     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-    //         .then((res) => res.json())
-    //         .then((res) => setDataRandom(res.meals[0]));
-    // }, [data]);
+    useEffect(() => {
+        fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+            .then((res) => res.json())
+            .then((res) => setDataRandom(res.meals[0]));
+    }, []);
 
     useEffect(() => {
         fetch(
@@ -45,11 +45,11 @@ function App() {
 
             <div className="container">
                 {/* Idée de menu */}
-                {/* {menuSelect === "" && (
+                {menuSelect === "" && (
                     <ContainerCardRandom
                         menuRandom={dataRandom}
                     />
-                )} */}
+                )}
                 {/* SearchBar */}
                 {menuSelect === "" && (
                     <div className="searchbar">
