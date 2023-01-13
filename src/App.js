@@ -9,17 +9,16 @@ function App() {
     // === STATES ===
 
     const [data, setData] = useState([]);
-    const [searchLetter, setSearchLetter] = useState("c");
-    const [dataRandom, setDataRandom] = useState("");
+    const [searchLetter, setSearchLetter] = useState(getRandomLetter);
     const [menuSelect, setMenuSelect] = useState("");
 
     // === COMPORTEMENT ===
 
-    useEffect(() => {
-        fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-            .then((res) => res.json())
-            .then((res) => setDataRandom(res.meals[0]));
-    }, []);
+    function getRandomLetter() {
+        const letters = "abcdefghijklmnoprstvwy";
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        return letters[randomIndex];
+    }
 
     useEffect(() => {
         fetch(
@@ -35,7 +34,9 @@ function App() {
 
     const menuClick = (id) => {
         id !== ""
-            ? setMenuSelect(data.filter((menu) => menu.idMeal === id))
+            ? id === "menuRandom"
+                ? setMenuSelect("menuRandom")
+                : setMenuSelect(data.filter((menu) => menu.idMeal === id))
             : setMenuSelect("");
     };
 
@@ -45,13 +46,11 @@ function App() {
 
             <div className="container">
                 {/* Idée de menu */}
-                {menuSelect === "" && (
-                    <ContainerCardRandom
-                        menuRandom={dataRandom}
-                    />
+                {(menuSelect === "" || menuClick === "menuRandom") && (
+                    <ContainerCardRandom menuClick={menuClick} />
                 )}
                 {/* SearchBar */}
-                {menuSelect === "" && (
+                {(menuSelect === "" || menuClick === "menuRandom") === "" && (
                     <div className="searchbar">
                         <input
                             type="search"
@@ -67,7 +66,7 @@ function App() {
                     </div>
                 )}
                 {/* Liste filtrée des plats ou menu detaillé */}
-                {menuSelect === "" ? (
+                {(menuSelect === "" || menuClick === "menuRandom") ? (
                     data !== null ? (
                         <ContainerCards
                             searchLetter={searchLetter}
