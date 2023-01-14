@@ -6,8 +6,19 @@
     min-width: 300px;
     margin: 0 8px;
     background-color: $color-bg;
-    @include boxShadow4;
     z-index: 10;
+}
+
+.container-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-titre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-h1 {
@@ -15,6 +26,16 @@
     padding: 8px;
     color: $color-primary;
     font-family: $police-titre;
+}
+
+.logo-like-titre {
+    cursor: pointer;
+    padding-top: 4px;
+    svg {
+        height: 32px;
+        width: 32px;
+        fill: $color-primary;
+    }
 }
 
 .p-menu {
@@ -44,4 +65,13 @@
 
 .ingredients-list {
     margin: 16px;
+}
+
+.link-video {
+    margin: 16px;
+    svg {
+        height: 56px;
+        width: 56px;
+        fill: red;
+    }
 }

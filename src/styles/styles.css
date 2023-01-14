@@ -105,7 +105,32 @@ p {
   }
 }
 
+.favorite-bar {
+  position: fixed;
+  top: 56px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  background-color: #0078aa;
+  z-index: 5;
+}
+
+.card-favori-img {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0 8px;
+  z-index: 6;
+}
+.card-favori-img img {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+}
+
 .container-card-random {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -233,6 +258,18 @@ p {
   height: 100%;
 }
 
+.logo-like {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.logo-like svg {
+  width: 32px;
+  height: 32px;
+  fill: #3ab4f2;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -241,8 +278,19 @@ p {
   min-width: 300px;
   margin: 0 8px;
   background-color: #f3f6f9;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   z-index: 10;
+}
+
+.container-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-titre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-h1 {
@@ -250,6 +298,16 @@ p {
   padding: 8px;
   color: #0078aa;
   font-family: "Poppins", sans-serif;
+}
+
+.logo-like-titre {
+  cursor: pointer;
+  padding-top: 4px;
+}
+.logo-like-titre svg {
+  height: 32px;
+  width: 32px;
+  fill: #0078aa;
 }
 
 .p-menu {
@@ -282,4 +340,13 @@ p {
 
 .ingredients-list {
   margin: 16px;
+}
+
+.link-video {
+  margin: 16px;
+}
+.link-video svg {
+  height: 56px;
+  width: 56px;
+  fill: red;
 }/*# sourceMappingURL=styles.css.map */

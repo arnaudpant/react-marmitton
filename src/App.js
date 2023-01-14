@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AppBar from "./components/Appbar/AppBar";
+import Favorite from "./components/Favorite/FavoriteBarre";
 import ContainerCards from "./components/container-cards/ContainerCards";
 import ContainerCardRandom from "./components/container-cards/ContainerCardRandom";
 import Menu from "./components/menu/Menu";
+import { useGlobalContext } from "./context";
 import "./styles/styles.css";
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
     const [data, setData] = useState([]);
     const [searchLetter, setSearchLetter] = useState(getRandomLetter);
     const [menuSelect, setMenuSelect] = useState("");
+    const { favorite } = useGlobalContext();
 
     // === COMPORTEMENT ===
 
@@ -44,13 +47,17 @@ function App() {
         <>
             <AppBar />
 
+            {
+                favorite.length > 0 && <Favorite />
+            }
+
             <div className="container">
                 {/* Idée de menu */}
                 {(menuSelect === "" || menuClick === "menuRandom") && (
                     <ContainerCardRandom menuClick={menuClick} />
                 )}
                 {/* SearchBar */}
-                {(menuSelect === "" || menuClick === "menuRandom") === "" && (
+                {(menuSelect === "" || menuClick === "menuRandom") && (
                     <div className="searchbar">
                         <input
                             type="search"
@@ -59,14 +66,14 @@ function App() {
                             maxLength={1}
                             onChange={(e) =>
                                 e.target.value === ""
-                                    ? setSearchLetter("c")
+                                    ? setSearchLetter(searchLetter)
                                     : affichageMenus(e.target.value)
                             }
                         ></input>
                     </div>
                 )}
                 {/* Liste filtrée des plats ou menu detaillé */}
-                {(menuSelect === "" || menuClick === "menuRandom") ? (
+                {menuSelect === "" || menuClick === "menuRandom" ? (
                     data !== null ? (
                         <ContainerCards
                             searchLetter={searchLetter}
