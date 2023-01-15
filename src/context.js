@@ -22,10 +22,16 @@ const AppProvider = ({ children }) => {
         return setFavorite(addToFavorite)
     };
 
+
+    const removeFavorite = (mealId) => {
+        const updateFavorite = favorite.filter((meal)=> meal.idMeal !== mealId );
+        return setFavorite(updateFavorite);
+    }
+
     // AFFICHAGE
     // ========
     return (
-        <AppContext.Provider value={{ dataRandomContext, addFavorite, favorite }}>
+        <AppContext.Provider value={{ dataRandomContext, addFavorite, removeFavorite, favorite }}>
             {children}
         </AppContext.Provider>
     );

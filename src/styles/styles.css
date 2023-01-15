@@ -117,16 +117,33 @@ p {
 }
 
 .card-favori-img {
+  position: relative;
   display: flex;
   align-items: center;
   height: 100%;
   margin: 0 8px;
+  cursor: pointer;
   z-index: 6;
 }
 .card-favori-img img {
   height: 64px;
   width: 64px;
   border-radius: 50%;
+}
+
+.logo-delete {
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  width: 32px;
+  height: 32px;
+  z-index: 7;
+}
+.logo-delete svg {
+  width: 32px;
+  height: 32px;
+  fill: #f3f6f9;
+  cursor: pointer;
 }
 
 .container-card-random {
@@ -186,6 +203,10 @@ p {
   top: 80px;
 }
 
+.container.container-favorite {
+  top: 156px;
+}
+
 .searchbar {
   margin: 24px 0 0;
 }
@@ -240,9 +261,11 @@ p {
   top: 60%;
   width: 280px;
   margin: 0 auto;
+  padding: 8px;
   border-radius: 999px;
   background-color: #0078aa;
   font-family: "Poppins", sans-serif;
+  font-size: 20px;
   color: #f3f6f9;
   text-align: center;
   z-index: 1;

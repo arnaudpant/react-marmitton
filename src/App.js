@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AppBar from "./components/Appbar/AppBar";
-import Favorite from "./components/Favorite/FavoriteBarre";
+import FavoriteBarre from "./components/Favorite/FavoriteBarre";
 import ContainerCards from "./components/container-cards/ContainerCards";
 import ContainerCardRandom from "./components/container-cards/ContainerCardRandom";
 import Menu from "./components/menu/Menu";
@@ -43,15 +43,26 @@ function App() {
             : setMenuSelect("");
     };
 
+    const menuFavClick = (favMeal) => {
+        setMenuSelect(favMeal);
+    };
+
+    // AFFICHAGE
     return (
         <>
             <AppBar />
 
-            {
-                favorite.length > 0 && <Favorite />
-            }
+            {favorite.length > 0 && (
+                <FavoriteBarre menuFavoriteClick={menuFavClick} />
+            )}
 
-            <div className="container">
+            <div
+                className={
+                    favorite.length > 0
+                        ? "container container-favorite"
+                        : "container"
+                }
+            >
                 {/* Idée de menu */}
                 {(menuSelect === "" || menuClick === "menuRandom") && (
                     <ContainerCardRandom menuClick={menuClick} />
@@ -72,6 +83,7 @@ function App() {
                         ></input>
                     </div>
                 )}
+
                 {/* Liste filtrée des plats ou menu detaillé */}
                 {menuSelect === "" || menuClick === "menuRandom" ? (
                     data !== null ? (

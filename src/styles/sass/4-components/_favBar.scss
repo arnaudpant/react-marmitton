@@ -10,15 +10,31 @@
 }
 
 .card-favori-img {
+    position: relative;
     display: flex;
     align-items: center;
     height: 100%;
     margin: 0 8px;
+    cursor: pointer;
     z-index: 6;
     img {
         height: 64px;
         width: 64px;
         border-radius: 50%;
+    }
+}
 
+.logo-delete {
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    z-index: 7;
+    svg {
+        width: 32px;
+        height: 32px;
+        fill: $color-bg;
+        cursor: pointer;
     }
 }

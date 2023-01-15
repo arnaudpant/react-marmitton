@@ -15,7 +15,13 @@ const CardMeals = ({ meals, menuClick }) => {
                     <img src={meals.strMealThumb} alt="plat {meals.strMeal}" />
                 </div>
                 <h2>{meals.strMeal}</h2>
-                <div className="logo-like" onClick={()=>addFavorite(meals)}>
+                <div
+                    className="logo-like"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        addFavorite(meals);
+                    }}
+                >
                     <AiOutlineHeart />
                 </div>
             </div>

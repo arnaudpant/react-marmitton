@@ -3,7 +3,7 @@ import {AiOutlineHeart} from 'react-icons/ai';
 
 export default function ContainerCardRandom({ menuClick }) {
     // State
-    const {dataRandomContext} = useGlobalContext();
+    const {dataRandomContext, addFavorite} = useGlobalContext();
 
     // Comportement
 
@@ -26,7 +26,15 @@ export default function ContainerCardRandom({ menuClick }) {
                         <h3>Pays: {dataRandomContext.strArea}</h3>
                         <p>Catégorie: {dataRandomContext.strCategory}</p>
                     </div>
-                    <div className="logo-like"><AiOutlineHeart /></div>
+                    <div
+                    className="logo-like"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        addFavorite(dataRandomContext);
+                    }}
+                >
+                    <AiOutlineHeart />
+                </div>
                 </div>
             )}
         </>
