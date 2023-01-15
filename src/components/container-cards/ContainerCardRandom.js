@@ -1,23 +1,42 @@
-export default function ContainerCardRandom({ menuRandom }) {
+import { useGlobalContext } from "../../context";
+import {AiOutlineHeart} from 'react-icons/ai';
+
+export default function ContainerCardRandom({ menuClick }) {
     // State
+    const {dataRandomContext, addFavorite} = useGlobalContext();
 
     // Comportement
 
     return (
-        <div className="container-card-random">
-            <div className="card-random__img">
-                <img
-                    src={menuRandom.strMealThumb}
-                    alt={menuRandom.strMeal}
-                ></img>
-            </div>
-            <div className="card-random__text">
-                <p className="idee-jour">Idée du jour</p>
-                <h1>{menuRandom.strMeal}</h1>
-                <h3>Pays: {menuRandom.strArea}</h3>
-                <p>Catégorie: {menuRandom.strCategory}</p>
-            </div>
-
-        </div>
+        <>
+            {dataRandomContext && (
+                <div
+                    className="container-card-random"
+                    onClick={() => menuClick("menuRandom")}
+                >
+                    <div className="card-random__img">
+                        <img
+                            src={dataRandomContext.strMealThumb}
+                            alt={dataRandomContext.strMeal}
+                        ></img>
+                    </div>
+                    <div className="card-random__text">
+                        <p className="idee-jour">Idée du jour</p>
+                        <h1>{dataRandomContext.strMeal}</h1>
+                        <h3>Pays: {dataRandomContext.strArea}</h3>
+                        <p>Catégorie: {dataRandomContext.strCategory}</p>
+                    </div>
+                    <div
+                    className="logo-like"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        addFavorite(dataRandomContext);
+                    }}
+                >
+                    <AiOutlineHeart />
+                </div>
+                </div>
+            )}
+        </>
     );
 }
