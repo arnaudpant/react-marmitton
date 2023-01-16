@@ -58,7 +58,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   height: 56px;
   background-color: #f3f6f9;
@@ -66,43 +66,29 @@ p {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
-.logos {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-}
-.logos h1 {
+.navbar__title {
   color: #0078aa;
   font-family: "Poppins", sans-serif;
   font-size: 1.8em;
 }
 @media screen and (max-width: 900px) {
-  .logos h1 {
+  .navbar__title {
     font-size: 1.5em;
   }
 }
 
-.btn-action {
+.container {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  margin-right: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  top: 80px;
 }
-.btn-action input {
-  width: 120px;
-  height: 32px;
-  margin: 0 8px;
-  border: 1px solid #0078aa;
-  border-radius: 999px;
-  color: #0078aa;
-}
-@media screen and (max-width: 900px) {
-  .btn-action {
-    display: none;
-  }
+
+.container.container-favorite {
+  top: 156px;
 }
 
 .favorite-bar {
@@ -146,61 +132,31 @@ p {
   cursor: pointer;
 }
 
-.container-card-random {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  width: 600px;
-  height: 300px;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-.container-card-random h1, .container-card-random h3 {
-  margin: 0;
-  padding: 4px;
-}
-.container-card-random p {
-  color: #0078aa;
-  margin: 8px;
-}
-
-.card-random__img {
-  height: 300px;
-  width: 200px;
-  overflow: hidden;
-}
-.card-random__img img {
-  height: 100%;
-}
-
-.card-random__text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 400px;
-  height: 90%;
-}
-
-.idee-jour {
+.card-meal__idee-jour {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 1.2em;
   padding: 4px 16px;
-  border: 1px solid #0078aa;
+  background-color: #0078aa;
   border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+  color: #f3f6f9;
 }
 
-.container {
-  position: relative;
+.card-meal__text {
+  position: absolute;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  top: 80px;
+  justify-content: space-around;
+  background-color: #f3f6f9;
+  height: 40px;
+  width: 100%;
+}
+.card-meal__text p {
+  color: #0078aa;
 }
 
 .container.container-favorite {
@@ -256,12 +212,15 @@ p {
   height: 350px;
   z-index: -1;
 }
-.card-meal h2 {
-  position: relative;
-  top: 60%;
+
+.card-meal__titre {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 280px;
   margin: 0 auto;
-  padding: 8px;
+  padding: 4px 8px;
   border-radius: 999px;
   background-color: #0078aa;
   font-family: "Poppins", sans-serif;
@@ -271,14 +230,9 @@ p {
   z-index: 1;
 }
 @media screen and (max-width: 900px) {
-  .card-meal h2 {
+  .card-meal__titre {
     font-size: 1.2em;
   }
-}
-.card-meal a {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 
 .logo-like {
