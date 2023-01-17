@@ -7,7 +7,7 @@ export default function CardRandom() {
     // STATE
     // =========
 
-    const { dataRandomContext, addMealToFavoriteBarre } = useGlobalContext();
+    const { dataRandomContext, addMealToFavoriteBarre, removeMealToFavoriteBarre } = useGlobalContext();
     const [toggleLike, setToggleLike] = useState(false)
     
     
@@ -53,12 +53,11 @@ export default function CardRandom() {
                             e.stopPropagation();
                             setToggleLike(!toggleLike);
                             !toggleLike ? 
-                            addMealToFavoriteBarre(dataRandomContext) : console.log("faux")
+                            addMealToFavoriteBarre(dataRandomContext) : removeMealToFavoriteBarre(dataRandomContext)
                         }}
                     >
                         {toggleLike ? 
-                            <AiFillHeart /> :
-                            <AiOutlineHeart />
+                            <AiFillHeart /> : <AiOutlineHeart />
                         }
                     </div>
                 </div>

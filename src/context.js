@@ -24,16 +24,16 @@ const AppProvider = ({ children }) => {
     // COMPORTEMENT
     // ============
 
-    const addMealToFavoriteBarre = (meal) => {
-        meal.favori = true;
-        const addToFavorite = [...listFavorisMeals, meal];
-        console.log(addToFavorite);
+    const addMealToFavoriteBarre = (menuInFavori) => {
+        //menuInFavori.favori = true;
+        const addToFavorite = [...listFavorisMeals, menuInFavori];
         return setListFavorisMeals(addToFavorite)
     };
-
-
-    const removeMealToFavoriteBarre = (mealId) => {
-        const updateFavorite = listFavorisMeals.filter((meal)=> meal.idMeal !== mealId );
+    
+    
+    const removeMealToFavoriteBarre = (menuInFavori) => {
+        //menuInFavori.favori = false;
+        const updateFavorite = listFavorisMeals.filter((meal)=> meal.idMeal !== menuInFavori.idMeal );
         return setListFavorisMeals(updateFavorite);
     }
 

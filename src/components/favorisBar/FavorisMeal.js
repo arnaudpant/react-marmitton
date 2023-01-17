@@ -25,7 +25,7 @@ const FavorisMeal = ({menuInFavori}) => {
         >
             <img src={menuInFavori.strMealThumb} alt={`Menu ${menuInFavori.strMeal}`} />
 
-            <div className="logo-delete" onClick={() => removeMealToFavoriteBarre(menuInFavori.idMeal)}> 
+            <div className="logo-delete" onClick={() => removeMealToFavoriteBarre(menuInFavori)}> 
             <TiDelete />
         </div>
         </div>
