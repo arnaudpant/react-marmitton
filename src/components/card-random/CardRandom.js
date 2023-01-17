@@ -1,10 +1,29 @@
 import { useGlobalContext } from "../../context";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useState } from "react";
 
 export default function CardRandom() {
-    // State
-    const { dataRandomContext } = useGlobalContext();
-    // Comportement
+    /// ========
+    // STATE
+    // =========
+
+    const { dataRandomContext, addMealToFavoriteBarre } = useGlobalContext();
+    const [toggleLike, setToggleLike] = useState(false)
+    
+    
+    
+    
+    
+    // ============
+    // COMPORTEMENT
+    // ============
+
+
+
+
+    // =========
+    // AFFICHAGE
+    // =========
 
     return (
         <>
@@ -32,10 +51,15 @@ export default function CardRandom() {
                         className="logo-like"
                         onClick={(e) => {
                             e.stopPropagation();
-                            // addFavorite(dataRandomContext);
+                            setToggleLike(!toggleLike);
+                            !toggleLike ? 
+                            addMealToFavoriteBarre(dataRandomContext) : console.log("faux")
                         }}
                     >
-                        <AiOutlineHeart />
+                        {toggleLike ? 
+                            <AiFillHeart /> :
+                            <AiOutlineHeart />
+                        }
                     </div>
                 </div>
             )}

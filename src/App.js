@@ -1,22 +1,46 @@
 import React from "react";
-// import { useGlobalContext } from "./context";
+import { useGlobalContext } from "./context";
 
-import AppBar from "./components/Appbar/AppBar";
+import AppBar from "./components/appBar/AppBar";
 import CardRandom from "./components/card-random/CardRandom";
 
 import "./styles/styles.css";
+import FavoriteBarre from "./components/favorisBar/FavoriteBarre";
 
 function App() {
-    // === STATES ===
+    /// ========
+    // STATE
+    // =========
+    const { listFavorisMeals } = useGlobalContext();
 
-    // === COMPORTEMENT ===
 
+
+
+
+    // ============
+    // COMPORTEMENT
+    // ============
+
+
+
+
+    
+    // =========
     // AFFICHAGE
+    // =========
     return (
         <>
             <AppBar />
 
-            <div className="container">
+            {listFavorisMeals.length > 0 && <FavoriteBarre />}
+
+            <div
+                className={
+                    listFavorisMeals.length > 0
+                        ? "container container-favorite"
+                        : "container"
+                }
+            >
                 <CardRandom />
             </div>
         </>
