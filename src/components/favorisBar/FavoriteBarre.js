@@ -7,17 +7,11 @@ const FavoriteBarre = () => {
     // STATE
     // =========
 
-    const {listFavorisMeals} = useGlobalContext();
-
-
-
+    const { listFavorisMeals } = useGlobalContext();
 
     // ============
     // COMPORTEMENT
     // ============
-
-
-
 
     // =========
     // AFFICHAGE
@@ -25,10 +19,13 @@ const FavoriteBarre = () => {
 
     return (
         <div className="favorite-bar">
-        {listFavorisMeals.map((favoriMeal) => (
-            <FavorisMeal key={favoriMeal.idMeal} menuInFavori={favoriMeal}/>
-        ))}
-    </div>
+            {listFavorisMeals.map((favoriMeal) => (
+                <FavorisMeal
+                    key={favoriMeal.idMeal}
+                    menuInFavori={favoriMeal}
+                />
+            ))}
+        </div>
     );
 };
 

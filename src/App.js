@@ -6,6 +6,7 @@ import CardRandom from "./components/card-random/CardRandom";
 
 import "./styles/styles.css";
 import FavoriteBarre from "./components/favorisBar/FavoriteBarre";
+import CardsByLetter from "./components/cards-by-letters/CardsByLetter";
 
 function App() {
     /// ========
@@ -20,7 +21,7 @@ function App() {
     // ============
     // COMPORTEMENT
     // ============
-
+    
 
 
 
@@ -42,6 +43,8 @@ function App() {
                 }
             >
                 <CardRandom />
+
+                <CardsByLetter />
             </div>
         </>
     );

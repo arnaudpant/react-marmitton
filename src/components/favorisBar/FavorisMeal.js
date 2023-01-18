@@ -2,18 +2,15 @@ import React from "react";
 import { useGlobalContext } from "../../context";
 import { TiDelete } from "react-icons/ti";
 
-
-const FavorisMeal = ({menuInFavori}) => {
+const FavorisMeal = ({ menuInFavori }) => {
     // ========
     // STATE
     // =========
-    const {removeMealToFavoriteBarre} = useGlobalContext();
+    const { removeMealToFavoriteBarre } = useGlobalContext();
 
     // ============
     // COMPORTEMENT
     // ============
-
-
 
     // =========
     // AFFICHAGE
@@ -23,11 +20,17 @@ const FavorisMeal = ({menuInFavori}) => {
             className="card-favori-img"
             //  onClick={() => menuFavClick(favMeal)}
         >
-            <img src={menuInFavori.strMealThumb} alt={`Menu ${menuInFavori.strMeal}`} />
+            <img
+                src={menuInFavori.strMealThumb}
+                alt={`Menu ${menuInFavori.strMeal}`}
+            />
 
-            <div className="logo-delete" onClick={() => removeMealToFavoriteBarre(menuInFavori)}> 
-            <TiDelete />
-        </div>
+            <div
+                className="logo-delete"
+                onClick={() => removeMealToFavoriteBarre(menuInFavori)}
+            >
+                <TiDelete />
+            </div>
         </div>
     );
 };

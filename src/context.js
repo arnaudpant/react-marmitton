@@ -7,44 +7,76 @@ const AppProvider = ({ children }) => {
     // ========
 
     const [dataRandomContext, setDataRanddomContext] = useState("");
+    const [dataByLetter, setDataByLetter] = useState([]);
 
     const [listFavorisMeals, setListFavorisMeals] = useState([]);
+    const [idInFavoris, setIdInFavoris] = useState([]);
+    const [idMealDeleted, setIdMealDeleted] = useState();
 
+    const [searchLetter, setSearchLetter] = useState(getRandomLetter);
+
+    /* 
+    *** APPELS API
+    */
     useEffect(() => {
         fetch("https://www.themealdb.com/api/json/v1/1/random.php")
             .then((res) => res.json())
             .then((res) => setDataRanddomContext(res.meals[0]));
     }, []);
 
-
-
+    useEffect(() => {
+        fetch(
+            `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchLetter}`
+        )
+            .then((res) => res.json())
+            .then((res) => setDataByLetter(res.meals));
+    }, [searchLetter]);
 
 
     // ============
     // COMPORTEMENT
     // ============
 
-    const addMealToFavoriteBarre = (menuInFavori) => {
-        //menuInFavori.favori = true;
-        const addToFavorite = [...listFavorisMeals, menuInFavori];
-        return setListFavorisMeals(addToFavorite)
-    };
-    
-    
-    const removeMealToFavoriteBarre = (menuInFavori) => {
-        //menuInFavori.favori = false;
-        const updateFavorite = listFavorisMeals.filter((meal)=> meal.idMeal !== menuInFavori.idMeal );
-        return setListFavorisMeals(updateFavorite);
+    function getRandomLetter() {
+        const letters = "abcdefghijklmnoprstvwy";
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        return letters[randomIndex];
     }
 
+    const addMealToFavoriteBarre = (menuInFavori) => {
+        const addToFavorite = [...listFavorisMeals, menuInFavori];
+        setListFavorisMeals(addToFavorite);
+        setIdInFavoris(addToFavorite.map(meal => meal.idMeal))
+        setIdMealDeleted();
+    };
 
-
-
+    const removeMealToFavoriteBarre = (menuInFavori) => {
+        const updateFavorite = listFavorisMeals.filter(
+            (meal) => meal.idMeal !== menuInFavori.idMeal
+        );
+        setIdMealDeleted(menuInFavori.idMeal)
+        setListFavorisMeals(updateFavorite);
+        setIdInFavoris(updateFavorite.map(meal => meal.idMeal))
+    };
+    
+    console.log(idInFavoris);
     // =========
     // AFFICHAGE
     // =========
     return (
-        <AppContext.Provider value={{ listFavorisMeals, addMealToFavoriteBarre, removeMealToFavoriteBarre, dataRandomContext }}>
+        <AppContext.Provider
+            value={{
+                listFavorisMeals,
+                addMealToFavoriteBarre,
+                removeMealToFavoriteBarre,
+                dataRandomContext,
+                idMealDeleted,
+                searchLetter,
+                setSearchLetter,
+                dataByLetter,
+                idInFavoris
+            }}
+        >
             {children}
         </AppContext.Provider>
     );
