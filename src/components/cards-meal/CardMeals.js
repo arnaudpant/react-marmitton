@@ -1,31 +1,28 @@
-import { useState } from "react";
+
 import { useGlobalContext } from "../../context";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useState } from "react";
 
 const CardMeals = ({ meals }) => {
     /// ========
     // STATE
     // =========
 
-    const { addMealToFavoriteBarre, removeMealToFavoriteBarre, idInFavoris } =
+    const { addMealToFavoriteBarre, removeMealToFavoriteBarre, idInFavoris, setMenuAffiche } =
         useGlobalContext();
+    const [likeUnlike, setLikeUnlike] = useState(false);
 
     // ============
     // COMPORTEMENT
     // ============
-    const likeUnlike = (arrIdInFavoris) => {
-        if (meals.idMeal.includes(Number(arrIdInFavoris))) {
-            return (<AiFillHeart />);
-        } else {
-            return <AiOutlineHeart />;
-        }
-    };
 
-    const addOrRemove = (id) => {
-        if (id.includes(Number(idInFavoris))) {
-            return removeMealToFavoriteBarre(meals);
+    const addOrRemove = () => {
+        if (meals.idMeal.includes(Number(idInFavoris))) {
+            removeMealToFavoriteBarre(meals);
+            setLikeUnlike(true);
         } else {
-            return addMealToFavoriteBarre(meals);
+            addMealToFavoriteBarre(meals);
+            setLikeUnlike(false);
         }
     };
 
@@ -33,7 +30,7 @@ const CardMeals = ({ meals }) => {
     // AFFICHAGE
     // =========
     return (
-        <div className="card-meal">
+        <div className="card-meal" onClick={()=>{setMenuAffiche(meals)}}>
             <div className="img-bkg">
                 <img src={meals.strMealThumb} alt="plat {meals.strMeal}" />
             </div>
@@ -43,9 +40,10 @@ const CardMeals = ({ meals }) => {
                 onClick={(e) => {
                     e.stopPropagation();
                     addOrRemove(meals.idMeal);
+                    setLikeUnlike(!likeUnlike);
                 }}
             >
-                {likeUnlike(idInFavoris)}
+                {likeUnlike ? <AiFillHeart /> : <AiOutlineHeart />}
             </div>
         </div>
     );

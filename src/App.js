@@ -7,12 +7,14 @@ import CardRandom from "./components/card-random/CardRandom";
 import "./styles/styles.css";
 import FavoriteBarre from "./components/favorisBar/FavoriteBarre";
 import CardsByLetter from "./components/cards-by-letters/CardsByLetter";
+import SearchBar from "./components/SearchBar/SearchBar";
+import MenuAffiche from "./components/menuAffiche/MenuAffiche";
 
 function App() {
     /// ========
     // STATE
     // =========
-    const { listFavorisMeals } = useGlobalContext();
+    const { listFavorisMeals, menuAffiche } = useGlobalContext();
 
 
 
@@ -35,6 +37,9 @@ function App() {
 
             {listFavorisMeals.length > 0 && <FavoriteBarre />}
 
+            {menuAffiche !== "" ?
+                <MenuAffiche />
+                :
             <div
                 className={
                     listFavorisMeals.length > 0
@@ -44,8 +49,12 @@ function App() {
             >
                 <CardRandom />
 
+                <SearchBar />
+
                 <CardsByLetter />
             </div>
+
+        }
         </>
     );
 }

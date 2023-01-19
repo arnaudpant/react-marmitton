@@ -1,4 +1,5 @@
 import { useGlobalContext } from "../../context";
+import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 export default function CardRandom() {
@@ -10,28 +11,25 @@ export default function CardRandom() {
         dataRandomContext,
         addMealToFavoriteBarre,
         removeMealToFavoriteBarre,
-        idInFavoris
+        idInFavoris,
+        setMenuAffiche
     } = useGlobalContext();
+
+    const [likeUnlike, setLikeUnlike] = useState(false);
 
     // ============
     // COMPORTEMENT
     // ============
-    const likeUnlike = (arrIdInFavoris) => {
-        if (dataRandomContext.idMeal.includes(Number(arrIdInFavoris))) {
-            return <AiFillHeart />;
+
+    const addOrRemove = (id, idInFavoris) => {
+        if (id.includes(Number(idInFavoris))) {
+            removeMealToFavoriteBarre(dataRandomContext);
+            setLikeUnlike(true);
         } else {
-            return <AiOutlineHeart />;
+            addMealToFavoriteBarre(dataRandomContext);
+            setLikeUnlike(false);
         }
     };
-
-    const addOrRemove = (id) => {
-        if (id.includes(Number(idInFavoris))) {
-            return removeMealToFavoriteBarre(dataRandomContext);
-        } else {
-            return addMealToFavoriteBarre(dataRandomContext);
-        }
-    }
-
 
     // =========
     // AFFICHAGE
@@ -42,7 +40,7 @@ export default function CardRandom() {
             {dataRandomContext && (
                 <div
                     className="card-meal"
-                    // onClick={() => cardMenuClick("affichageMenuRandom")}
+                    onClick={() => setMenuAffiche(dataRandomContext)}
                 >
                     <img
                         src={dataRandomContext.strMealThumb}
@@ -65,10 +63,11 @@ export default function CardRandom() {
                         className="logo-like"
                         onClick={(e) => {
                             e.stopPropagation();
-                            addOrRemove(dataRandomContext.idMeal)
+                            addOrRemove(dataRandomContext.idMeal, idInFavoris);
+                            setLikeUnlike(!likeUnlike);
                         }}
                     >
-                        {likeUnlike(idInFavoris)}
+                        {likeUnlike ? <AiFillHeart /> : <AiOutlineHeart />}
                     </div>
                 </div>
             )}

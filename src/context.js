@@ -11,9 +11,10 @@ const AppProvider = ({ children }) => {
 
     const [listFavorisMeals, setListFavorisMeals] = useState([]);
     const [idInFavoris, setIdInFavoris] = useState([]);
-    const [idMealDeleted, setIdMealDeleted] = useState();
 
     const [searchLetter, setSearchLetter] = useState(getRandomLetter);
+
+    const [menuAffiche, setMenuAffiche] = useState("");
 
     /* 
     *** APPELS API
@@ -44,22 +45,27 @@ const AppProvider = ({ children }) => {
     }
 
     const addMealToFavoriteBarre = (menuInFavori) => {
+        // Pour affichage dans favori-barre
         const addToFavorite = [...listFavorisMeals, menuInFavori];
         setListFavorisMeals(addToFavorite);
-        setIdInFavoris(addToFavorite.map(meal => meal.idMeal))
-        setIdMealDeleted();
+        // Pour ajout des id dans array des favoris
+        setIdInFavoris(addToFavorite.map(meal => meal.idMeal));
     };
 
     const removeMealToFavoriteBarre = (menuInFavori) => {
+        // Pour affichage dans favori-barre
         const updateFavorite = listFavorisMeals.filter(
-            (meal) => meal.idMeal !== menuInFavori.idMeal
-        );
-        setIdMealDeleted(menuInFavori.idMeal)
+            (meal) => meal.idMeal !== menuInFavori.idMeal);
         setListFavorisMeals(updateFavorite);
-        setIdInFavoris(updateFavorite.map(meal => meal.idMeal))
+            // Pour maj des id dans array des favoris
+        setIdInFavoris(updateFavorite.map(meal => meal.idMeal));
     };
     
-    console.log(idInFavoris);
+    const affichageMenus = (inputModif) => {
+        setSearchLetter(inputModif);
+    };
+    
+
     // =========
     // AFFICHAGE
     // =========
@@ -70,11 +76,13 @@ const AppProvider = ({ children }) => {
                 addMealToFavoriteBarre,
                 removeMealToFavoriteBarre,
                 dataRandomContext,
-                idMealDeleted,
                 searchLetter,
                 setSearchLetter,
                 dataByLetter,
-                idInFavoris
+                idInFavoris,
+                affichageMenus,
+                setMenuAffiche,
+                menuAffiche
             }}
         >
             {children}

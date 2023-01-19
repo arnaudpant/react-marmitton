@@ -6,7 +6,7 @@ const FavorisMeal = ({ menuInFavori }) => {
     // ========
     // STATE
     // =========
-    const { removeMealToFavoriteBarre } = useGlobalContext();
+    const { removeMealToFavoriteBarre, setMenuAffiche } = useGlobalContext();
 
     // ============
     // COMPORTEMENT
@@ -18,7 +18,7 @@ const FavorisMeal = ({ menuInFavori }) => {
     return (
         <div
             className="card-favori-img"
-            //  onClick={() => menuFavClick(favMeal)}
+            onClick={() => setMenuAffiche(menuInFavori)}
         >
             <img
                 src={menuInFavori.strMealThumb}
@@ -27,7 +27,11 @@ const FavorisMeal = ({ menuInFavori }) => {
 
             <div
                 className="logo-delete"
-                onClick={() => removeMealToFavoriteBarre(menuInFavori)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    removeMealToFavoriteBarre(menuInFavori);
+                }}
+                idDeleted={menuInFavori.idMeal}
             >
                 <TiDelete />
             </div>
