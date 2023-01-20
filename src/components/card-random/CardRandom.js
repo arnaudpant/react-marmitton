@@ -21,8 +21,8 @@ export default function CardRandom() {
     // COMPORTEMENT
     // ============
 
-    const addOrRemove = (id, idInFavoris) => {
-        if (id.includes(Number(idInFavoris))) {
+    const addOrRemove = () => {
+        if (dataRandomContext.idMeal.includes(Number(idInFavoris))) {
             removeMealToFavoriteBarre(dataRandomContext);
             setLikeUnlike(true);
         } else {
@@ -63,7 +63,7 @@ export default function CardRandom() {
                         className="logo-like"
                         onClick={(e) => {
                             e.stopPropagation();
-                            addOrRemove(dataRandomContext.idMeal, idInFavoris);
+                            addOrRemove(dataRandomContext.idMeal);
                             setLikeUnlike(!likeUnlike);
                         }}
                     >
