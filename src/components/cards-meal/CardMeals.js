@@ -19,10 +19,8 @@ const CardMeals = ({ meals }) => {
     const addOrRemove = () => {
         if (meals.idMeal.includes(Number(idInFavoris))) {
             removeMealToFavoriteBarre(meals);
-            setLikeUnlike(true);
         } else {
             addMealToFavoriteBarre(meals);
-            setLikeUnlike(false);
         }
     };
 
