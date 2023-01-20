@@ -14,7 +14,7 @@ function App() {
     /// ========
     // STATE
     // =========
-    const { listFavorisMeals, menuAffiche } = useGlobalContext();
+    const { listFavorisMeals, menuAffiche, dataByLetter, searchLetter } = useGlobalContext();
 
 
 
@@ -51,7 +51,16 @@ function App() {
 
                 <SearchBar />
 
-                <CardsByLetter />
+                {dataByLetter != null ?
+                    <CardsByLetter /> :
+                    (<div className="msg-error">
+                    Pas de menu avec la lettre{" "}
+                    {searchLetter.toUpperCase()} !<br />
+                    Essayez avec une autre lettre
+                </div>)
+                
+                }
+
             </div>
 
         }
