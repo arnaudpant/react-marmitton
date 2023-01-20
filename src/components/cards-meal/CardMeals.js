@@ -1,4 +1,3 @@
-
 import { useGlobalContext } from "../../context";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
