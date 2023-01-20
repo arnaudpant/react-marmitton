@@ -1,11 +1,8 @@
-
-
 const AppBar = () => {
 
     return (
         <div className="navbar">
-            {/* <div className="menu-hamburger"></div> */}
-            <div className="logos">
+            <div className="navbar__logo">
                 <svg
                     enable-background="new 0 0 20 20"
                     height="48px"
@@ -23,12 +20,8 @@ const AppBar = () => {
                         </g>
                     </g>
                 </svg>
-                <h1>react marmitton</h1>
             </div>
-            <div className="btn-action">
-                <input type="button" className="btn-panier" value="Mon panier"></input>
-                <input type="button" className="btn-connect" value="Connexion"></input>
-            </div>
+            <h1 className="navbar__title">React Marmitton</h1>
         </div>
     );
 };

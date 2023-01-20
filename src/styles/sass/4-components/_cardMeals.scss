@@ -14,29 +14,26 @@
         height: 350px;
         z-index: -1;
     }
+}
 
-    h2 {
-        position: relative;
-        top: 60%;
-        width: 280px;
-        margin: 0 auto;
-        padding: 8px;
-        border-radius: 999px;
-        background-color: $color-primary;
-        font-family: $police-titre;
-        font-size: 20px;
-        color: $color-bg;
-        text-align: center;
-        z-index: 1;
+.card-meal__titre {
+    position: absolute;
+    bottom: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    margin: 0 auto;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background-color: $color-primary;
+    font-family: $police-titre;
+    font-size: 20px;
+    color: $color-bg;
+    text-align: center;
+    z-index: 1;
 
-        @media screen and (max-width: 900px) {
-            font-size: 1.2em;
-        }
-    }
-    a{
-        display: block;
-        width: 100%;
-        height: 100%;
+    @media screen and (max-width: 900px) {
+        font-size: 1.2em;
     }
 }
 

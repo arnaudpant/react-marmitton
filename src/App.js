@@ -1,108 +1,69 @@
-import React, { useEffect, useState } from "react";
-import AppBar from "./components/Appbar/AppBar";
-import FavoriteBarre from "./components/Favorite/FavoriteBarre";
-import ContainerCards from "./components/container-cards/ContainerCards";
-import ContainerCardRandom from "./components/container-cards/ContainerCardRandom";
-import Menu from "./components/menu/Menu";
+import React from "react";
 import { useGlobalContext } from "./context";
+
+import AppBar from "./components/appBar/AppBar";
+import CardRandom from "./components/card-random/CardRandom";
+
 import "./styles/styles.css";
+import FavoriteBarre from "./components/favorisBar/FavoriteBarre";
+import CardsByLetter from "./components/cards-by-letters/CardsByLetter";
+import SearchBar from "./components/SearchBar/SearchBar";
+import MenuAffiche from "./components/menuAffiche/MenuAffiche";
 
 function App() {
-    // === STATES ===
+    /// ========
+    // STATE
+    // =========
+    const { listFavorisMeals, menuAffiche, dataByLetter, searchLetter } = useGlobalContext();
 
-    const [data, setData] = useState([]);
-    const [searchLetter, setSearchLetter] = useState(getRandomLetter);
-    const [menuSelect, setMenuSelect] = useState("");
-    const { favorite } = useGlobalContext();
 
-    // === COMPORTEMENT ===
 
-    function getRandomLetter() {
-        const letters = "abcdefghijklmnoprstvwy";
-        const randomIndex = Math.floor(Math.random() * letters.length);
-        return letters[randomIndex];
-    }
 
-    useEffect(() => {
-        fetch(
-            `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchLetter}`
-        )
-            .then((res) => res.json())
-            .then((res) => setData(res.meals));
-    }, [searchLetter]);
 
-    const affichageMenus = (inputModif) => {
-        setSearchLetter(inputModif);
-    };
+    // ============
+    // COMPORTEMENT
+    // ============
+    
 
-    const menuClick = (id) => {
-        id !== ""
-            ? id === "menuRandom"
-                ? setMenuSelect("menuRandom")
-                : setMenuSelect(data.filter((menu) => menu.idMeal === id))
-            : setMenuSelect("");
-    };
 
-    const menuFavClick = (favMeal) => {
-        setMenuSelect(favMeal);
-    };
 
+    
+    // =========
     // AFFICHAGE
+    // =========
     return (
         <>
             <AppBar />
 
-            {favorite.length > 0 && (
-                <FavoriteBarre menuFavoriteClick={menuFavClick} />
-            )}
+            {listFavorisMeals.length > 0 && <FavoriteBarre />}
 
+            {menuAffiche !== "" ?
+                <MenuAffiche />
+                :
             <div
                 className={
-                    favorite.length > 0
+                    listFavorisMeals.length > 0
                         ? "container container-favorite"
                         : "container"
                 }
             >
-                {/* Idée de menu */}
-                {(menuSelect === "" || menuClick === "menuRandom") && (
-                    <ContainerCardRandom menuClick={menuClick} />
-                )}
-                {/* SearchBar */}
-                {(menuSelect === "" || menuClick === "menuRandom") && (
-                    <div className="searchbar">
-                        <input
-                            type="search"
-                            id="site-search"
-                            placeholder="Tapez la première lettre"
-                            maxLength={1}
-                            onChange={(e) =>
-                                e.target.value === ""
-                                    ? setSearchLetter(searchLetter)
-                                    : affichageMenus(e.target.value)
-                            }
-                        ></input>
-                    </div>
-                )}
+                <CardRandom />
 
-                {/* Liste filtrée des plats ou menu detaillé */}
-                {menuSelect === "" || menuClick === "menuRandom" ? (
-                    data !== null ? (
-                        <ContainerCards
-                            searchLetter={searchLetter}
-                            data={data}
-                            menuClick={menuClick}
-                        />
-                    ) : (
-                        <div className="msg-error">
-                            Pas de menu avec la lettre{" "}
-                            {searchLetter.toUpperCase()} !<br />
-                            Essayez avec une autre lettre
-                        </div>
-                    )
-                ) : (
-                    <Menu menuSelect={menuSelect} menuClick={menuClick} />
-                )}
+                <SearchBar />
+
+                {dataByLetter != null ?
+                    <CardsByLetter /> :
+                    (<div className="msg-error">
+                    Pas de menu avec la lettre{" "}
+                    {searchLetter.toUpperCase()} !<br />
+                    Essayez avec une autre lettre
+                </div>)
+                
+                }
+
             </div>
+
+        }
         </>
     );
 }

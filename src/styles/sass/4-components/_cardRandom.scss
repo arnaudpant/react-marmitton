@@ -1,51 +1,26 @@
-.container-card-random {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 600px;
-    height: 300px;
-    margin: 0 auto;
-    border-radius: 8px;
-    @include boxShadow2;
-    overflow: hidden;
-
-
-    h1, h3 {
-        margin: 0;
-        padding: $m1;
-    }
-
-    p {
-        color: $color-primary;
-        margin: $m2;
-    }
-
-}
-
-.card-random__img {
-    height: 300px;
-    width: 200px;
-    overflow: hidden;
-    
-    img {
-        height: 100%;
-    }
-}
-
-.card-random__text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 400px;
-    height: 90%;
-}
-
-.idee-jour{
+.card-meal__idee-jour {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 1.2em;
     padding: 4px 16px;
-    border: 1px solid $color-primary;
+    background-color: $color-primary;
     border-radius: 999px;
+    font-family: $police-titre;
+    color: $color-bg;
+}
+
+.card-meal__text {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $color-bg;
+    height: 40px;
+    width: 100%;
+    p {
+        color: $color-primary;
+    }
 }
