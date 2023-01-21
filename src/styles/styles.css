@@ -333,4 +333,15 @@ p {
   height: 56px;
   width: 56px;
   fill: red;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  height: 56px;
+  width: 100%;
+  color: #f3f6f9;
+  background-color: #0078aa;
 }/*# sourceMappingURL=styles.css.map */
