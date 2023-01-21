@@ -1,6 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "./context";
-//import AppBar from "./components/AppBar/AppBar";
+import AppBar from "./components/AppBar/AppBar";
 import CardRandom from "./components/card-random/CardRandom";
 import FavoriteBarre from "./components/favorisBar/FavoriteBarre";
 import CardsByLetter from "./components/cards-by-letters/CardsByLetter";
@@ -31,7 +31,7 @@ function App() {
     // =========
     return (
         <>
-            {/* <AppBar /> */}
+            <AppBar />
 
             {listFavorisMeals.length > 0 && <FavoriteBarre />}
 
