@@ -13,9 +13,18 @@
 
 .title-bar__title {
     color: $color-primary;
+    margin: 4px 16px;
     font-family: $police-titre;
     font-size: 1.8em;
     @media screen and (max-width: 900px) {
         font-size: 1.5em;
+    }
+}
+
+.title-bar__logo {
+    svg {
+        height: 48px;
+        width: 48px;
+        fill: $color-primary;
     }
 }
