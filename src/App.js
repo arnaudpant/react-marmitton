@@ -31,7 +31,7 @@ function App() {
     // =========
     return (
         <>
-            <AppBar />
+            {/* <AppBar /> */}
 
             {listFavorisMeals.length > 0 && <FavoriteBarre />}
 
