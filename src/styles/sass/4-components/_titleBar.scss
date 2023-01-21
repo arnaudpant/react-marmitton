@@ -1,4 +1,4 @@
-.navbar {
+.title-bar {
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -11,7 +11,7 @@
     @include boxShadow4;
 }
 
-.navbar__title {
+.title-bar__title {
     color: $color-primary;
     font-family: $police-titre;
     font-size: 1.8em;
