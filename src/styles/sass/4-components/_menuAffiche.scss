@@ -55,11 +55,11 @@
         width: 280px;
         // height: auto;
         @include boxShadow2;
-        @media screen and (max-width: 900px){
+        @media screen and (max-width: 900px) {
             width: 240px;
         }
     }
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 900px) {
         flex-direction: column;
         align-items: center;
     }
